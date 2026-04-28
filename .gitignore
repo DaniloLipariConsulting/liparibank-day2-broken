@@ -1,0 +1,13 @@
+# file temporanei
+*.tmp
+*.log
+
+# cartelle dipendenze
+node_modules/
+
+# file sensibili
+.env
+
+# build / output
+dist/
+build/
