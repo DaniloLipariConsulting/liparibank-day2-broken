@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useOperationCounter } from '../../hooks/useOperationCounter';
 import styles from './AccountBalanceCard.module.css';
 
@@ -8,8 +8,12 @@ interface AccountBalanceCardProps {
 
 const AccountBalanceCard = ({ balance }: AccountBalanceCardProps) => {
   const [displayBalance, setDisplayBalance] = useState(balance);
+  
+  useEffect(() => {
+    setDisplayBalance(balance);
+  }, [balance]);
+  
   const { count, increment, decrement, reset } = useOperationCounter();
-
   const formatCurrency = (value: number) =>
     new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(value);
 
